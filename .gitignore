@@ -7,3 +7,9 @@ hacknarok_env/
 *.pyc
 __pycache__/
 local_settings.py
+
+### Jupyter Notebook ###
+.ipynb_checkpoints
+
+### Other files ###
+RAW_recipes.csv
