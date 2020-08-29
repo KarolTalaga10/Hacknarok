@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path
 
 from pages.views import home_view, about_view
+from recipe.views import add_ingredients_view, delete_ingredients_view
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('home/', home_view, name='home'),
     path('about/', about_view, name='about'),
     path('admin/', admin.site.urls),
+    path('add_ingredients/', add_ingredients_view, name='add_ingredients'),
+    path('delete_ingredients/<str:pk>/', delete_ingredients_view, name='delete_ingredients'),
 ]

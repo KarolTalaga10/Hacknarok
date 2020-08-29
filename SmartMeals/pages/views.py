@@ -1,11 +1,23 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from recipe.models import OwnIngredient, Recipe, Nutrition
+
 # Create your views here.
 
 def home_view(response, *args, **kwargs):
     # return HttpResponse("<h1>TEST</h1>")
-    return render(response, 'home.html', {})
+    ingredients = OwnIngredient.objects.all() 
+    recipes = Recipe.objects.all()
+    total_ingredients = ingredients.count()
+    total_recipes = recipes.count()
+
+    context ={
+        'ingredients':ingredients,
+        'total_ingredients':total_ingredients,
+        'total_recipes':total_recipes
+    }
+    return render(response, 'home.html', context)
 
 def about_view(response, *args, **kwargs):
     return render(response, 'about.html', {})

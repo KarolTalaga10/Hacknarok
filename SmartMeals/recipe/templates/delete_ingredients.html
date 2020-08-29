@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+{%  include 'status.html' %}
+
+
+<br>
+<div class="row">
+	<div class="col-md-6">
+		<div class="ingredient-body">
+			<p>Are you sure you want to delete "{{item}}"?</p>
+
+			<form action="{% url 'delete_ingredients' item.id  %}" method="POST">
+				
+				{% csrf_token %}
+				<a class="btn btn-warning" href="{% url 'home' %}">Cancel</a>
+
+				<input class="btn btn-danger" type="submit" name="Confirm">
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
+

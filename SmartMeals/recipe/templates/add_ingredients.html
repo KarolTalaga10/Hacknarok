@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+{%  include 'status.html' %}
+
+<br>
+<div class="row">
+	<div class="col-md-6">
+        <h5>ADD INGREDIENT:</h5>
+		<hr>
+		<div class="indredient-body">
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{ form }}
+				
+				<input type="submit" name="Save" />
+			</form>
+
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
+
