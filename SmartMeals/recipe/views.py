@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from .forms import OwnIngredientForm
-from .models import OwnIngredient, Recipe, Nutrition
+from .models import OwnIngredient, Recipe, Nutrition, Time
 
 # Create your views here.
 

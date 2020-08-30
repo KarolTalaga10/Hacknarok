@@ -3,6 +3,9 @@ import json
 
 
 # Create your models here.
+class Time(models.Model):
+    mins            = models.IntegerField()
+
 class Ingredient(models.Model):
     name            = models.CharField(max_length=100)
     tag             = models.CharField(max_length=30)
@@ -26,19 +29,6 @@ class Recipe(models.Model):
 
     def __str__ (self):
         return self.name
-
-    def set_steps(self, x):
-        self.steps = json.dumps(x)
-
-    def get_steps(self):
-        return json.loads(self.steps)
-
-    def set_ingredients(self, x):
-        self.steps = json.dumps(x)
-
-    def get_ingredients(self):
-        return json.loads(self.steps)
-
 
 class Nutrition(models.Model):
     container       = models.ForeignKey(Recipe, on_delete=models.CASCADE)
