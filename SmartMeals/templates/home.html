@@ -20,7 +20,7 @@
 				{% for ingredient in ingredients %}
 					<tr>
                         <td></td>
-                        <td style="font-size: large;">{{ingredient.name}}</td>
+                        <td style="font-size: large;">{{ingredient.name|capfirst}}</td>
                         <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 						<td style="margin-left: 280px;"><a class="btn btn-sm btn-info" href="{% url 'delete_ingredients' ingredient.id %}">     Delete     </a></td>
 						
@@ -32,11 +32,19 @@
 	</div>
 
 	<div class="col-md-5">
-		<!-- <h5></h5>
+		<h5>Preparation Time</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'home' %}">Create Order</a>
-			<table class="table table-sm">
+			<div class="card card-body">
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{ form }}
+				
+				<input type="submit" name="Save" />
+				</form>
+			</div>
+			<a class="btn btn-primary  btn-lg btn-block" href="{% url 'search' %}">Search</a>
+			<!-- <table class="table table-sm">
 				<tr>
 					<th>Product</th>
 					<th>Date Orderd</th>
@@ -58,8 +66,8 @@
 				{% endfor %}
 
 		
-			</table>
-		</div> -->
+			</table> -->
+		</div>
 	</div>
 
 </div>

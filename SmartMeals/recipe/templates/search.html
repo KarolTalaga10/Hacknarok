@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<br>
+<div class="row">
+	<div class="col-md-6">
+        <h5>Found recipes:</h5>
+		<hr>
+		<div class="card card-body">
+            <table class="table table-sm">
+				<tr>
+					<th style="font-size:large;">Name</th>
+				</tr>
+                {% if not recipes %}
+                    <tr>
+                        <td>No matching recipes</td>
+                    </tr>
+                {% endif %}
+				{% for recipe in recipes %}
+					<tr>
+                        <td></td>
+                        <td style="margin-left: 280px;"><a class="btn btn-lg btn-info" href="{% url 'recipe_details' recipe.id %}"> {{recipe.name|capfirst}} </a></td>
+                        <!-- <td style="font-size: large;">{{recipe.name}}</td> -->
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+						<!-- <td style="margin-left: 280px;"><a class="btn btn-sm btn-info" href="{% url 'home' %}"> {{recipe.name}} </a></td> -->
+						
+					</tr>
+                {% endfor %}
+
+
+			</table>
+			
+
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

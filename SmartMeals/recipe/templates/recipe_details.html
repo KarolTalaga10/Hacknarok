@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<br>
+<div class="row">
+	<div class="col-md-6">
+        <h5>Found recipes:</h5>
+		<hr>
+		<div class="card card-body">
+            <table class="table table-sm">
+				<tr>
+					<th style="font-size:large;">{{recipe.name|capfirst}} ({{recipe.minutes}} mins)</th>
+				</tr>
+
+                <tr>
+                    
+                    <td>
+                        <ul>
+                            {% for ingredient in lst_of_ingredients %}
+                            <li style="margin-top: 20;">{{ ingredient }} </li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+						
+				</tr>
+
+				<tr>
+                    
+                    <td>
+                        <ol>
+                            {% for step in lst_of_steps %}
+                            <li style="margin-top: 20;">{{ step }} </li>
+                            {% endfor %}
+                        </ol>
+                    </td>
+						
+				</tr>
+
+			</table>
+			
+
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

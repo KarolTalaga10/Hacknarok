@@ -4,7 +4,7 @@ import json
 
 # Create your models here.
 class Time(models.Model):
-    mins            = models.IntegerField()
+    mins            = models.IntegerField(default=30)
 
 class Ingredient(models.Model):
     name            = models.CharField(max_length=100)
